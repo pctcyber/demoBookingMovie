@@ -39,14 +39,11 @@ export default class Header extends Component {
                                 Dropdown
                              </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><NavLink className="dropdown-item" to="/usestatedemo">UseState</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/usestatedemo">Use State</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/chonXe">Chon Xe</NavLink></li>
-                               
+                                <li><NavLink className="dropdown-item" to="/usestateeffect">Use Effect</NavLink></li>
                             </ul>
-                               
                         </li>
-
-
                     </ul>
                     <form className="form-inline my-2 my-lg-0 d-flex" style={{ marginLeft: '800px' }}>
                         <input className="form-control " type="text" placeholder="Search" />
