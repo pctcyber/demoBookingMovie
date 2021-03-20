@@ -1,19 +1,11 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import { PhimReducer } from './reducers/PhimReducer.jsx'
-import reduxThunk from 'redux-thunk'
-import {LoadinngReducer} from './reducers/LoadingReducer'
+import {combineReducers} from 'redux'
+import {PhimReducer} from './reducers/PhimReducer'
 
-// store tong ung dung
+// tao store tong ung dung
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
 
-    // noi chua cac reducer (store con ) cho tung nghiep vu
-        PhimReducer,
-        LoadinngReducer,
+    PhimReducer,
+// store con cho tung nghiep vu
+
 })
-
-// apply thunk de xu ly dispatch api
-
-export const store = createStore(rootReducer, applyMiddleware(reduxThunk));
-
-

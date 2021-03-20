@@ -6,11 +6,14 @@ import reportWebVitals from './reportWebVitals';
 
 // setup redux
 import {Provider} from 'react-redux'
-import {store} from './redux/configStore.jsx'
+import {createStore,applyMiddleware} from 'redux'
+import {rootReducer} from './redux/configStore'
+import thunk from 'redux-thunk'
 
+const store = createStore(rootReducer,applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider store = {store} >
     <App />
     </ Provider>,
     document.getElementById('root')

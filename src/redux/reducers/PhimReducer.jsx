@@ -1,21 +1,19 @@
 const stateDefault = {
 
-    mangPhim: []
+    arrayFilm: [],
 
 }
 
 export const PhimReducer = (state = stateDefault,action) => {
-
-    switch (action.type) {
-        case "DANHSACHPHIM" : {
-            state.mangPhim = [...action.mangPhim]
-            
-            return {...state}
-
-        }
     
-        default:
-        return {...state};
+    
+    // console.log(action);
+    switch (action.type) {
+        case "LIST_FILM" :{
+            state.arrayFilm = action.value
+        }
+        default :
+        return {...state}
     }
 
 }

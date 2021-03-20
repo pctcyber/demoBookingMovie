@@ -7,7 +7,6 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login'
 import { BrowserRouter } from 'react-router-dom';
 import Header from './Component/Header/Header'
-import Loading from './Component/Loading/Loading';
 import LifeCircle from './pages/LifeCircle/LifeCircle';
 import UseStateHook from './pages/Hooks/UseStateHook';
 import BaiTapChonXe from './pages/Hooks/BaiTapChonXe/BaiTapChonXe';

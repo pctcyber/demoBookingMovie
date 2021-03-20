@@ -1,88 +1,77 @@
-import axios from 'axios';
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import {layDanhSachPhim} from '../../redux/action/PhimAction'
-
+import axios from 'axios'
+import { connect } from 'react-redux'
+import {getDataFromServer} from '../../redux/action/PhimAction'
 
 class Home extends Component {
 
-    // state = {
 
-    //     mangFilm: [],
-    // }
+    downloadFilm = () => {
 
-    loadFilm = () => {
-        return this.props.mangPhim.map((film, index) => {
-            return <div key={index} className="col-3 my-4">
-                <div className="card text-white bg-primary">
-                    <img className="card-img-top" width='100%' height='200px' src={film.hinhAnh} alt='hinhAnh' />
-                    <div className="card-body">
-                        <h4 className="card-title">{film.tenPhim}</h4>
-                    </div>
+        this.props.dispatch(getDataFromServer())
+    }
+
+    renderFilm = () => {
+
+        console.log(this.props.arrayFilm);
+        return this.props.arrayFilm.map((itemFilm, index) => {
+
+            return <div key={index} className="card text-white  col-3 py-3 my-3">
+                <img className="card-img-top" style={{ width: '100%', height: 250 }} src={itemFilm.hinhAnh} alt={itemFilm.hinhAnh} />
+                <div className="card-body bg-dark">
+                    <h4 className="card-title">{itemFilm.tenPhim}</h4>
+                    <p className="card-text">{itemFilm.maPhim}</p>
                 </div>
             </div>
+
         })
-
     }
 
-    downLoadFilm = () => {
-
-        // let promise = axios({
-        //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-        //     method: 'GET'
-        // })
-
-        // promise.then((res) => {
-        //     console.log('result',res.data);
-        //     this.props.dispatch({
-
-        //         type: 'DANHSACHPHIM',
-        //         mangPhim: res.data,
-
-        //     })
-
-        // })
-
-        // promise.catch((err) => {
-
-        //     console.log(err);
-
-        // })
-
-        this.props.dispatch(layDanhSachPhim())
-
-    }
 
     render() {
         return (
-            <div className='container' >
-
+            <div className='container'>
                 {/* <button onClick={() => {
-                    this.downLoadFilm()
-                }} className='btn btn-success'>Render Film
-                </button> */}
+                    this.downloadFilm()
+                }} className='btn btn-success' >downloadFilm</button> */}
 
-                <div className='row'>
-                    {this.loadFilm()}
+                <div className="row">
+                    {this.renderFilm()}
                 </div>
-
             </div>
-
         )
-    };
+    }
 
     componentDidMount(){
-        this.downLoadFilm();
-    };        
 
-}
-
-const mapStateToProps = (state) => {
-    
-    return {
-
-        mangPhim: state.PhimReducer.mangPhim,
+        this.downloadFilm()
     }
 }
 
-export default connect(mapStateToProps)(Home)
+
+
+const mapStateToProps = (state) => {
+
+    return {
+        arrayFilm: state.PhimReducer.arrayFilm
+    }
+
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         sentDataToStore: (value) => {
+//             // const action = {
+//             //     type: "LIST_FILM",
+//             //     value,
+//             // }
+//             dispatch({
+
+//                 type: "LIST_FILM",
+//                 value,
+//             })
+//         }
+//     }
+// }
+
+export default connect(mapStateToProps,null)(Home)

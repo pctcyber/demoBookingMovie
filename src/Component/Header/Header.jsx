@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 export default class Header extends Component {
     render() {
         return (
-
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div >
+            <nav className=" navbar navbar-expand-sm navbar-dark bg-dark">
                 <NavLink className="navbar-brand" to="#">Cyber</NavLink>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
@@ -54,9 +54,11 @@ export default class Header extends Component {
                     </form>
                 </div>
             </nav>
+            </div>
         )
 
     }
 }
+
 
 
