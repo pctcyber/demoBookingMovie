@@ -37,9 +37,9 @@ export default function ReduxHook() {
     }
 
 
-    useEffect(() => {
-        getListFilm()
-    },[])    
+    // useEffect(() => {
+    //     getListFilm()
+    // },[])    
 
     return (
         

@@ -5,7 +5,6 @@ import {getDataFromServer} from '../../redux/action/PhimAction'
 
 class Home extends Component {
 
-
     downloadFilm = () => {
 
         this.props.dispatch(getDataFromServer())
@@ -13,7 +12,7 @@ class Home extends Component {
 
     renderFilm = () => {
 
-        console.log(this.props.arrayFilm);
+        // console.log(this.props.arrayFilm);
         return this.props.arrayFilm.map((itemFilm, index) => {
 
             return <div key={index} className="card text-white  col-3 py-3 my-3">
@@ -31,6 +30,7 @@ class Home extends Component {
     render() {
         return (
             <div className='container'>
+                <p className = 'text text-center display-4'>List Film</p>
                 {/* <button onClick={() => {
                     this.downloadFilm()
                 }} className='btn btn-success' >downloadFilm</button> */}
@@ -58,20 +58,4 @@ const mapStateToProps = (state) => {
 
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         sentDataToStore: (value) => {
-//             // const action = {
-//             //     type: "LIST_FILM",
-//             //     value,
-//             // }
-//             dispatch({
-
-//                 type: "LIST_FILM",
-//                 value,
-//             })
-//         }
-//     }
-// }
-
-export default connect(mapStateToProps,null)(Home)
+export default connect(mapStateToProps)(Home)

@@ -10,7 +10,7 @@ export  const getDataFromServer = () => {
             url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01'
         })
 
-        console.log(promise);
+        // console.log(promise);
 
         dispatch({
             type: 'LIST_FILM',
