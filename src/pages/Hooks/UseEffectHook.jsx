@@ -14,7 +14,7 @@ export default function UseEffectHook() {
 
         let newListFilm = promise.data;
         
-        console.log(newListFilm);
+        // console.log(newListFilm);
         setListFilm(newListFilm)
         
     }

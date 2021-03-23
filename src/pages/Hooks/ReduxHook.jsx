@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import {useSelector,useDispatch} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 export default function ReduxHook() {
   
@@ -22,13 +23,13 @@ export default function ReduxHook() {
 
 
     const renderFilm = () => {
+        // console.log(listFilm);
         return listFilm.map((film, index) => {
          return   <div className="col-3" key={index}>
                 <div className="card text-white bg-primary">
                     <img style = {{width:"100%",height:300}} className="card-img-top" src={film.hinhAnh} alt = 'phim' />
                     <div className="card-body">
                         <h4 className="card-title">{film.tenPhim}</h4>
-                        <p className="card-text">{film.biDanh}</p>
                     </div>
                 </div>
             </div>
@@ -36,10 +37,9 @@ export default function ReduxHook() {
         })
     }
 
-
-    // useEffect(() => {
-    //     getListFilm()
-    // },[])    
+    useEffect(() => {
+        getListFilm()
+    },[])    
 
     return (
         

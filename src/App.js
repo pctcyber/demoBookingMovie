@@ -12,12 +12,15 @@ import UseStateHook from './pages/Hooks/UseStateHook';
 import BaiTapChonXe from './pages/Hooks/BaiTapChonXe/BaiTapChonXe';
 import UseStateEffect from './pages/Hooks/UseEffectHook';
 import ReduxHook from './pages/Hooks/ReduxHook';
+import Detail from './pages/Hooks/Detail';
+import Loading from './Component/Loading/Loading';
 
 function App() {
   return (
 
     <BrowserRouter>
       <div className="App">
+        <Loading/>
         <Header/>
         <Switch>
           <Route exact path='/home' component={Home} />
@@ -36,6 +39,7 @@ function App() {
           <Route exact path = '/chonXe' component = {BaiTapChonXe}/>
           <Route exact path = '/usestateeffect' component = {UseStateEffect}/>
           <Route exact path = '/reduxhook' component = {ReduxHook}/>
+          <Route exact path = '/detail/:id' component = {Detail}/>
 
           <Route exact path='/' component={Home} />
         </Switch>
