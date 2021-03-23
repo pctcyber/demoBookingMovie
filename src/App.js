@@ -14,6 +14,7 @@ import UseStateEffect from './pages/Hooks/UseEffectHook';
 import ReduxHook from './pages/Hooks/ReduxHook';
 import Detail from './pages/Hooks/Detail';
 import Loading from './Component/Loading/Loading';
+import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallBack';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route exact path = '/usestateeffect' component = {UseStateEffect}/>
           <Route exact path = '/reduxhook' component = {ReduxHook}/>
           <Route exact path = '/detail/:id' component = {Detail}/>
+          <Route exact path = '/usecallback' component = {DemoHookUseCallBack}/>
 
           <Route exact path='/' component={Home} />
         </Switch>
