@@ -3,13 +3,24 @@ import Cart from './Cart'
 export default function UseMemoHook() {
 
     let [like, setLike] = useState(1);
-    let cart = [
-        { id: 1, name: 'iPhone', price: 1000 },
-        { id: 2, name: 'xiOmi', price: 1000 },
-        { id: 3, name: 'samSung', price: 1000 }
-    ]
+    // let cart = [
+    //     { id: 1, name: 'iPhone', price: 1000 },
+    //     { id: 2, name: 'xiOmi', price: 1000 },
+    //     { id: 3, name: 'samSung', price: 1000 }
+    // ]
 
-    const cartMemo = useMemo(() => cart, [like] )
+    // const cartMemo = useMemo(() => cart, [like] )
+
+    const arrCart = () => {
+        let cart = [
+            { id: 1, name: 'iPhone', price: 1000 },
+            { id: 2, name: 'xiOmi', price: 1000 },
+            { id: 3, name: 'samSung', price: 1000 }
+        ]
+        return cart;            
+    }
+
+    const cartMemo = useMemo(arrCart,[like])
     
     return (
         <div className='m-5'>
