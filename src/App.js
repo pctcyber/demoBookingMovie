@@ -15,6 +15,7 @@ import ReduxHook from './pages/Hooks/ReduxHook';
 import Detail from './pages/Hooks/Detail';
 import Loading from './Component/Loading/Loading';
 import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallBack';
+import UseMemoHook from './pages/Hooks/useMemo Hook/UseMemoHook';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route exact path = '/reduxhook' component = {ReduxHook}/>
           <Route exact path = '/detail/:id' component = {Detail}/>
           <Route exact path = '/usecallback' component = {DemoHookUseCallBack}/>
+          <Route exact path = '/usememo' component = {UseMemoHook}/>
 
           <Route exact path='/' component={Home} />
         </Switch>
