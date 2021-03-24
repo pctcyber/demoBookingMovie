@@ -20,7 +20,7 @@ export const getDataFromServer = () => {
                 dispatch({
                     type: 'closeLoading'
                 })
-            }, 4000)
+            }, 1000)
         } catch (err) {
             console.log(err);
         }
