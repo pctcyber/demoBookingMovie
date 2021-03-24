@@ -16,6 +16,7 @@ import Detail from './pages/Hooks/Detail';
 import Loading from './Component/Loading/Loading';
 import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallBack';
 import UseMemoHook from './pages/Hooks/useMemo Hook/UseMemoHook';
+import UseRef from './pages/Hooks/UseRef';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route exact path = '/detail/:id' component = {Detail}/>
           <Route exact path = '/usecallback' component = {DemoHookUseCallBack}/>
           <Route exact path = '/usememo' component = {UseMemoHook}/>
+          <Route exact path = '/useref' component = {UseRef}/>
 
           <Route exact path='/' component={Home} />
         </Switch>
