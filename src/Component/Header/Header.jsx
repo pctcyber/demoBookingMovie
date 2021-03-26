@@ -23,6 +23,9 @@ export default class Header extends Component {
                             <NavLink className="nav-link" to="login">Login</NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink className="nav-link" to="profile">Profile</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink className="nav-link" to="lifecycle">LifeCicle</NavLink>
                         </li>
                         {/* <li className="nav-item dropdown">

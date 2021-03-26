@@ -8,6 +8,7 @@ export default function Detail(props) {
     const filmDetail  = useSelector(state => state.PhimReducer.filmDetail)
     const dispatch = useDispatch();
 
+    console.log(props);
     useEffect(() => {
         let{id} = props.match.params;
         dispatch(filmDetaildif(id))

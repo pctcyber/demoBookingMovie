@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router';
 
 export default function Login(props) {
 
+    console.log(props);
     const [userLogin,setUserLogin] = useState({userName:'',passWord:''})
 
     console.log({userLogin});
@@ -19,8 +21,10 @@ export default function Login(props) {
         event.preventDefault();
         if(userLogin.userName === 'cyberlearn' && userLogin.passWord === 'cyberlearn'){
 
-            props.history.push('/home');
+            localStorage.setItem('userLogin',JSON.stringify(userLogin))
+            props.history.push('/profile');
             // props.history.replace('/home')
+        //   {  <Redirect to = './login' />}
         } else{
             alert('fail login')
             return ;

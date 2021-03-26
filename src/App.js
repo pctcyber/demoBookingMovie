@@ -17,6 +17,7 @@ import Loading from './Component/Loading/Loading';
 import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallBack';
 import UseMemoHook from './pages/Hooks/useMemo Hook/UseMemoHook';
 import UseRef from './pages/Hooks/UseRef';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route exact path='/home' component={Home} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/profile' component={Profile} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/lifecycle' render = {(propsRoute) => { // tham so chua cac props cua the route
             
