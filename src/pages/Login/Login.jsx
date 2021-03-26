@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router';
+import { Prompt, Redirect } from 'react-router';
 
 export default function Login(props) {
 
@@ -39,6 +39,10 @@ export default function Login(props) {
                 <span>PassWord</span>
                 <input name = 'passWord' type="text" className='form-control' onChange={handleChange}/>
                 <button className='btn btn-success mt-3'>Login</button>
+                <Prompt when = {true} message = {(location) => {
+                    console.log(location);
+                    return "Ban co chac muon roi khoi trang nay khong"
+                }}/>
             </form>
         </div>
     )
