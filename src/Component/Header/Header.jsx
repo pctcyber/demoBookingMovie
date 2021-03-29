@@ -11,22 +11,22 @@ export default class Header extends Component {
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <NavLink className="nav-link" to="home">Home </NavLink>
+                            <NavLink className="nav-link" to="/home">Home </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="contact">Contact</NavLink>
+                            <NavLink className="nav-link" to="/contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="register">Register</NavLink>
+                            <NavLink className="nav-link" to="/register">Register</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="login">Login</NavLink>
+                            <NavLink className="nav-link" to="/login">Login</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="profile">Profile</NavLink>
+                            <NavLink className="nav-link" to="/profile">Profile</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="lifecycle">LifeCicle</NavLink>
+                            <NavLink className="nav-link" to="/lifecycle">LifeCicle</NavLink>
                         </li>
                         {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="dropdownId"
@@ -46,7 +46,6 @@ export default class Header extends Component {
                                 <li><NavLink className="dropdown-item" to="/chonXe">Chon Xe</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/usestateeffect">Use Effect</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/reduxhook">Redux Hook</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/detail">Detail</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/usememo">Use Memo Hook</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/usecallback">Use CallBack Hook</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/useref">Use Ref</NavLink></li>

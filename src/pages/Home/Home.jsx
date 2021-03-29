@@ -10,7 +10,7 @@ class Home extends Component {
         this.props.dispatch(getDataFromServer())
     }
     renderFilm = () => {
-
+        // console.log(this.props.arrayFilm);
         return this.props.arrayFilm.map((itemFilm, index) => {
 
             return <div key={index} className="card text-white  col-3 py-3 my-3">
@@ -22,19 +22,12 @@ class Home extends Component {
 
                 </div>
             </div>
-
         })
     }
-
-
     render() {
         return (
             <div className='container'>
                 <p className='text text-center display-4'>List Film</p>
-                {/* <button onClick={() => {
-                    this.downloadFilm()
-                }} className='btn btn-success' >downloadFilm</button> */}
-
                 <div className="row">
                     {this.renderFilm()}
                 </div>
@@ -43,19 +36,13 @@ class Home extends Component {
     }
 
     componentDidMount() {
-
         this.downloadFilm()
     }
 }
-
-
-
 const mapStateToProps = (state) => {
 
     return {
         arrayFilm: state.PhimReducer.arrayFilm
     }
-
 }
-
 export default connect(mapStateToProps)(Home)

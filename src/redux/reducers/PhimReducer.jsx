@@ -1,11 +1,10 @@
 const stateDefault = {
     arrayFilm: [],
-    filmDetail:{tenPhim:'anhye',hinhAnh:''}
+    filmDetail:{},
 }
 
 export const PhimReducer = (state = stateDefault,action) => {
     
-    // console.log(action);
 
     switch (action.type) {
         case "LIST_FILM" :{
@@ -21,6 +20,10 @@ export const PhimReducer = (state = stateDefault,action) => {
         case 'FILM_DETAIL':{
 
             state.filmDetail = action.chiTietPhim;
+            return {...state}
+        }
+        case 'HE_THONG_CUM_RAP':{
+            state.heThongCumRap = action.heThongCumRap;
             return {...state}
         }
     

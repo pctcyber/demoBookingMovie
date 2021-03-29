@@ -9,14 +9,12 @@ class Loading extends Component {
 
             return <div style = {{width:'100%',height:'100%',position:'fixed',top:0,left:0,zIndex:10}}>
                 <div style={{width:'100%',height:'100%',display:'flex',flexDirection: 'row',justifyContent:'center',alignItems:'center',backgroundColor:'rgba(0,0,0,.5)'}}>
-                    <span className='display-4'> Loading...</span>
+                    <span className='display-4' style = {{color: 'white'}} > ---Loading...</span>
                 </div>
             </div>
         }
-
         return ""
     }
-
 
     render() {
         return (

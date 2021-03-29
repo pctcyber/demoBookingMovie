@@ -7,11 +7,12 @@ export const getDataFromServer = () => {
         dispatch({
             type: 'openLoading'
         })
+
         try {
             setTimeout(async () => {
                 let promise = await axios({
+                    url: 'https://movie0706.cybersoft.edu.vn/api/quanlyphim/laydanhsachphim?maNhom=GP01',
                     method: 'GET',
-                    url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01'
                 })
                 dispatch({
                     type: 'LIST_FILM',
@@ -20,7 +21,7 @@ export const getDataFromServer = () => {
                 dispatch({
                     type: 'closeLoading'
                 })
-            }, 1000)
+            }, 0)
         } catch (err) {
             console.log(err);
         }
@@ -33,7 +34,7 @@ export const filmDetaildif = (maPhim) => {
     return async (dispatch) => {
         let promise = await axios({
             method: 'GET',
-            url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`
+            url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`
         })
 
         dispatch({
@@ -42,4 +43,26 @@ export const filmDetaildif = (maPhim) => {
         })
     }
 
+}
+
+export const heThongCumRap = () => {
+    
+    return async (dispatch) => {
+        
+        try {
+        let promise = await axios({
+
+            method:'GET',
+            url:'https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong'
+        })
+
+        dispatch({
+            type:'HE_THONG_CUM_RAP',
+            heThongCumRap: promise.data
+        }) }
+        catch (error){
+
+            console.log(error);
+        }
+    }
 }
