@@ -1,0 +1,22 @@
+.ghe{
+
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: pink;
+}
+
+.gheDaDat{
+    cursor: no-drop !important;
+
+    background-color: yellowgreen;
+}
+
+.gheChuaDat{
+
+    background-color: rgba(255, 166, 0, 0.671);
+    
+}
+.gheDangDat{
+    background-color: orchid;
+}

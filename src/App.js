@@ -18,7 +18,7 @@ import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallB
 import UseMemoHook from './pages/Hooks/useMemo Hook/UseMemoHook';
 import UseRef from './pages/Hooks/UseRef';
 import Profile from './pages/Profile/Profile';
-import CheckOUt from './pages/CheckOut/CheckOUt';
+import CheckOut from './pages/CheckOut/CheckOut';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/checkout/:id' component={CheckOUt} />
+          <Route exact path='/checkout/:id' component={CheckOut} />
 
           <Route exact path='/lifecycle' render = {(propsRoute) => { // tham so chua cac props cua the route
             

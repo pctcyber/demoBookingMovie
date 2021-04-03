@@ -29,40 +29,46 @@ export const getDataFromServer = () => {
 }
 
 
-export const filmDetaildif = (maPhim) => {
+export const filmDetailInfo = (maPhim) => {
 
     return async (dispatch) => {
-        let promise = await axios({
-            method: 'GET',
-            url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`
-        })
 
-        dispatch({
-            type: 'FILM_DETAIL',
-            chiTietPhim: promise.data,
-        })
+        try {
+            let promise = await axios({
+                method: 'GET',
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`
+            })
+            // console.log(promise);
+            dispatch({
+                type: 'FILM_DETAIL',
+                data: promise.data
+            })
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
 }
 
-export const heThongCumRap = () => {
+export const danhSachGhe = (maLichChieu) => {
     
     return async (dispatch) => {
         
         try {
-        let promise = await axios({
 
-            method:'GET',
-            url:'https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong'
-        })
-
-        dispatch({
-            type:'HE_THONG_CUM_RAP',
-            heThongCumRap: promise.data
-        }) }
-        catch (error){
-
-            console.log(error);
+            let promise = await axios({
+                method:'GET',
+                url:`https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`
+            })
+            dispatch({
+                type: 'LIST_GHE',
+                danhSachGhe: promise.data
+            })
+        }
+        catch (err) {
+            console.log(err);
         }
     }
+
 }

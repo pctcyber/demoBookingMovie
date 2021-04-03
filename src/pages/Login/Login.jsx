@@ -1,49 +1,38 @@
-import React, { useState } from 'react'
-import { Prompt, Redirect } from 'react-router';
+import React, { Component } from 'react'
 
-export default function Login(props) {
+export default class Login extends Component {
 
-    console.log(props);
-    const [userLogin,setUserLogin] = useState({userName:'',passWord:''})
-
-    console.log({userLogin});
-    const handleChange = (event) => {
-        
-        const {name,value} = event.target;
-
-        setUserLogin({
-            ...userLogin,[name]:value
-        })
-
+    state = {
+        firstName:'',
+        lastName:'',
+        passWord:''
     }
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        if(userLogin.userName === 'cyberlearn' && userLogin.passWord === 'cyberlearn'){
+    handleChange = (name,value) => {
 
-            localStorage.setItem('userLogin',JSON.stringify(userLogin))
-            props.history.push('/profile');
-            // props.history.replace('/home')
-        //   {  <Redirect to = './login' />}
-        } else{
-            alert('fail login')
-            return ;
-        }
 
+        this.setState({
+            [name]: value
+        },console.log(this.state))
     }
-    return (
-        <div className='container'>
-            <form action="" className='form-group' onSubmit = {handleLogin}>
-                <span>UserName</span>
-                <input name = "userName" type="text" className='form-control mb-3' onChange = {handleChange}/>
-                <span>PassWord</span>
-                <input name = 'passWord' type="text" className='form-control' onChange={handleChange}/>
-                <button className='btn btn-success mt-3'>Login</button>
-                <Prompt when = {true} message = {(location) => {
-                    console.log(location);
-                    return "Ban co chac muon roi khoi trang nay khong"
-                }}/>
-            </form>
-        </div>
-    )
+
+    render() {
+        return (
+            <div className = 'container'>
+                <form className = 'form-group mt-5'>
+
+                        <input onChange = {(event) => {
+                            let {name,value} = event.target
+                            this.handleChange(name,value)
+                        }}  type="text" name = 'firstName' placeholder = 'firtName' className = 'form-control'/>
+
+                        <input type="text" name = 'lastName' placeholder = 'lastName' className = 'form-control my-4'/>
+
+                        <input type="password" name = 'passWord' placeholder = 'passWord' className = 'form-control'/>
+
+                        <button className = 'btn btn-success mt-3'>Submit</button>
+                </form>
+            </div>
+        )
+    }
 }

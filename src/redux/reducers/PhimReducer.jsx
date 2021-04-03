@@ -17,16 +17,13 @@ export const PhimReducer = (state = stateDefault,action) => {
             state.arrayFilm = action.list;
             return {...state}
         }
+        
         case 'FILM_DETAIL':{
 
-            state.filmDetail = action.chiTietPhim;
+            state.filmDetail = action.data;
             return {...state}
         }
-        case 'HE_THONG_CUM_RAP':{
-            state.heThongCumRap = action.heThongCumRap;
-            return {...state}
-        }
-    
+
         default :
         return {...state}
     }
