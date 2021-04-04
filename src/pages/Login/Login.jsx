@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Swal from 'sweetalert2'
 export default class Login extends Component {
 
     state = {
@@ -85,13 +85,89 @@ export default class Login extends Component {
         //     })
         // }
 
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        let { value, error } = this.state;
+        let isValid = true;
+        /**
+         * 
+         * let duyetArray = [{id: 0,ten:'nhi'},{maSo:01,tuoi: 20},{gioiTinh: "nu",queQuan: 'HCM'}]
+         * 
+         * + for in
+         * ==> array : trả về vị trí index
+         * 
+         *   for(let index in duyetArray ){
+         *   console.log(index)  => 0, 1, 2
+         *   }
+         * ==> object: duyệt qua từng thuộc tính của object
+         *   for(let key in duyetArray) {
+         *      console.log(key) => id maSo gioiTinh
+         *    }    
+         * 
+         * + for of
+         * ==> array: trả về từng đối tượng trong mảng
+         *    for(let item of duyetArray){
+         *    console.log(item) => {id: 0,ten:'nhi'} {maSo:01,tuoi: 20} {gioiTinh: "nu",queQuan: 'HCM'}
+         *    }
+         * 
+         * ==> object: 
+         */
+
+
+        // kiểm tra value ko dx rỗng
+
+        let textAlert = '';
+
+        for (let key in value) {
+            if(value[key] === '') {
+                textAlert += `<p class = 'text text-danger'>${key}  is required</p>`
+                isValid = false
+            }
+        }
+
+
+        // kiểm tra có lỗi hay ko
+        for( let key in error){
+            if(error[key] !== ''){
+                textAlert += `<p class = 'text text-danger'>${key}  is required</p>`;
+                isValid = false;
+            }
+        }
+
+        const Swal = require('sweetalert2')
+        if(isValid){ // thanh cong
+            // alert('success login')
+        
+            for(let key in value){
+                textAlert += `<p class = 'text text-success'>${key} : ${value[key]}</p>`
+            }
+            Swal.fire({
+                title: 'Your Info',
+                html: textAlert,
+                icon: 'success',
+                confirmButtonText: 'Yes!'
+              })
+
+        } else{ // that bai
+            Swal.fire({
+                title: 'Error!',
+                html: textAlert,
+                icon: 'error',
+                confirmButtonText: 'Yes!'
+              })
+            
+        }
 
 
     }
+
     render() {
         return (
             <div className='container'>
-                <form className='form-group mt-5'>
+                <form onSubmit={this.handleSubmit} className='form-group mt-5'>
 
                     <input value={this.state.value.firstName} onChange={this.handleChange} type="text" name='firstName'
                         placeholder='firtName' className='form-control' />
@@ -116,7 +192,7 @@ export default class Login extends Component {
                         placeholder='confirmPassWord' className='form-control' />
                     <span className='text text-danger'>{this.state.error.confirmPassWord}</span> <br />
 
-                    <button className='btn btn-success mt-3'>Submit</button>
+                    <button onSubmit={this.handleSubmit} className='btn btn-success mt-3'>Submit</button>
                 </form>
             </div>
         )
