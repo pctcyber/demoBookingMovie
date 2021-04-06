@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { datVeAction } from '../../redux/action/DatVeAction';
 import { danhSachGhe } from '../../redux/action/PhimAction'
 import './CheckOut.css'
 export default function CheckOut(props) {
@@ -39,7 +40,7 @@ export default function CheckOut(props) {
             let classGheDangDat = (indexGhe !== -1) ? 'gheDangDat' : '';
 
             return <Fragment key={index}>
-                <button className={`m-1 ghe ${classGheDaDat}   ${classGheChuaDat} ${classGheDangDat}   `} disabled={disabled} onClick = {() => {
+                <button className={`m-1 ghe ${classGheDangDat}   ${classGheChuaDat}  ${classGheDaDat}   `} disabled={disabled} onClick = {() => {
                     usedispatch({
                         type: 'LIST_GHE_DD',
                         itemGhe,
@@ -57,6 +58,17 @@ export default function CheckOut(props) {
         usedispatch(danhSachGhe(maLichChieu))
     }, [])
 
+
+    const handleDatVe = () => {
+        console.log(danhSachGheDangDat);
+        let ticketInfo = {
+            maLichChieu,
+            danhSachVe :danhSachGheDangDat,
+            taiKhoanNguoiDung: JSON.parse(localStorage.getItem('userInfo')).taiKhoan,
+
+        }
+        usedispatch(datVeAction(ticketInfo))
+    }
     return (
         <div>
             <div className='container-fluid'>
@@ -80,7 +92,7 @@ export default function CheckOut(props) {
                             <h3>Ghế đang đặt : {renderGheDangDat()}</h3>
                         </div>
                         <h3>Ticket Price: {renderGiaVe()}</h3>
-                        <button className = 'btn btn-success w-100'>Đặt vé</button>
+                        <button className = 'btn btn-success w-100' onClick = {handleDatVe}>Đặt vé</button>
                     </div>
                 </div>
 
