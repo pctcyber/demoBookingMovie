@@ -3,8 +3,6 @@ import './App.css';
 import { Route, Router, Switch } from 'react-router';
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
-import Register from './pages/Register/Register';
-import Login from './pages/Login/Login'
 import { BrowserRouter } from 'react-router-dom';
 import Header from './Component/Header/Header'
 import LifeCircle from './pages/LifeCircle/LifeCircle';
@@ -17,13 +15,20 @@ import Loading from './Component/Loading/Loading';
 import DemoHookUseCallBack from './pages/Hooks/useCallBack Hook/DemoHookUseCallBack';
 import UseMemoHook from './pages/Hooks/useMemo Hook/UseMemoHook';
 import UseRef from './pages/Hooks/UseRef';
-import Profile from './pages/Profile/Profile';
 import CheckOut from './pages/CheckOut/CheckOut';
+import Login from './pages/Login/Login';
+
+// import history
+import {createBrowserHistory} from 'history'
+// đối tượng giúp chuyển hướng bất kì trang nào
+export const history = createBrowserHistory()
+
+
 
 function App() {
   return (
 
-    <BrowserRouter>
+    <Router history = {history}>
       <div className="App">
         <Loading/>
         <Header/>
@@ -31,8 +36,6 @@ function App() {
           <Route exact path='/home' component={Home} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/profile' component={Profile} />
-          <Route exact path='/register' component={Register} />
           <Route exact path='/checkout/:id' component={CheckOut} />
 
           <Route exact path='/lifecycle' render = {(propsRoute) => { // tham so chua cac props cua the route
@@ -55,7 +58,7 @@ function App() {
         </Switch>
        
       </div>
-    </BrowserRouter>
+    </Router>
 
 
   );

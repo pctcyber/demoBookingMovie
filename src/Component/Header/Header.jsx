@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-export default class Header extends Component {
-    render() {
-        return (
-            <div >
+export default function Header() {
+
+    const {taiKhoanNguoiDung} = useSelector(state => state.UserLoginReducer)
+
+    return (
+        <div>
+              <div >
             <nav className=" navbar navbar-expand-sm navbar-dark bg-dark">
                 <NavLink className="navbar-brand" to="/">Cyber</NavLink>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
@@ -14,16 +18,12 @@ export default class Header extends Component {
                             <NavLink className="nav-link" to="/home">Home </NavLink>
                         </li>
                         <li className="nav-item">
+                            {taiKhoanNguoiDung ? <span className = 'text text-light'>{taiKhoanNguoiDung}</span> : <NavLink className="nav-link" to="/login">Login</NavLink>}
+                            
+                        </li>
+                        <li className="nav-item">
+
                             <NavLink className="nav-link" to="/contact">Contact</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/register">Register</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">Login</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/profile">Profile</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/lifecycle">LifeCicle</NavLink>
@@ -59,10 +59,7 @@ export default class Header extends Component {
                 </div>
             </nav>
             </div>
-        )
-
-    }
+        </div>
+    )
 }
-
-
 
