@@ -20,8 +20,8 @@ export const getDataFromServer = () => {
                 })
                 dispatch({
                     type: 'closeLoading'
-                })
-            }, 0)
+                })  
+            }, 2000)
         } catch (err) {
             console.log(err);
         }
