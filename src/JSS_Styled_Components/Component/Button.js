@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 
 export const Button = styled.button`
-color: white;
-background-color: green;
+color: ${props => props.primary ? 'green': 'orange'};
+background-color: ${props => props.primary ? 'pink': "blue"};
 font-size: 25px;
 padding: 10px;
 margin: 49px;
@@ -19,6 +19,16 @@ display: inline-block;
     };
 
     &.button_style{
-        color: black;
+        color: green;
     }
+`
+// tính kế thừa
+export const TomatoButton = styled(Button)`
+
+background-color: black;
+color:palevioletred;
+&:hover{
+    background-color: grey;
+    color: black
+}
 `
