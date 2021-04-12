@@ -20,6 +20,7 @@ import Login from './pages/Login/Login';
 
 // import history
 import {createBrowserHistory} from 'history'
+import DemoJSS from './JSS_Styled_Components/DemoJSS/DemoJSS';
 // đối tượng giúp chuyển hướng bất kì trang nào
 export const history = createBrowserHistory()
 
@@ -54,6 +55,7 @@ function App() {
           <Route exact path = '/usecallback' component = {DemoHookUseCallBack}/>
           <Route exact path = '/usememo' component = {UseMemoHook}/>
           <Route exact path = '/useref' component = {UseRef}/>
+          <Route exact path='/stylecomponents' component={DemoJSS} />
           <Route exact path='/' component={Home} />
         </Switch>
        

@@ -49,6 +49,7 @@ export default function Header() {
                                 <li><NavLink className="dropdown-item" to="/usememo">Use Memo Hook</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/usecallback">Use CallBack Hook</NavLink></li>
                                 <li><NavLink className="dropdown-item" to="/useref">Use Ref</NavLink></li>
+                                <li><NavLink className="dropdown-item" to="/stylecomponents">Styled Components</NavLink></li>
                             </ul>
                         </li>
                     </ul>
